@@ -97,13 +97,34 @@ def numberToBinary(num):
   """Takes a base10 number and converts to a binary string with 8 bits"""
   binary = ""
   #Convert from decimal to binary
+  While num >0:
+    binary = str(num % 2) + binary
+  
+  #25 -> 1
+  #12 -> 0
+  #6 -> 0
+  #3 -> 0
+  #1 ->1
+  #0 -> stops
 
+  #10011
+ while len(binary) <8
+  binary = "0" + binary
 
   return binary
 
 def binaryToNumber(bin):
   """Takes a string binary value and converts it to a base10 integer."""
   decimal = 0
+  value = 1
+
+  while len(bin) > 0:
+    lastSpot = len(bin) - 1
+    lastDigit = bin[spot]
+
+    if lastDigit == '1':
+      
+
 
 
   return decimal
