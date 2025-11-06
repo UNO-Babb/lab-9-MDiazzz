@@ -88,7 +88,6 @@ def decode(img):
     pixel = pixel + 1
     x = pixel % width
     y = pixel // width
-
   return msg
 
 #Helper functions
@@ -97,7 +96,7 @@ def numberToBinary(num):
   """Takes a base10 number and converts to a binary string with 8 bits"""
   binary = ""
   #Convert from decimal to binary
-  While num >0:
+  while num >0:
     binary = str(num % 2) + binary
   
   #25 -> 1
@@ -108,8 +107,8 @@ def numberToBinary(num):
   #0 -> stops
 
   #10011
- while len(binary) <8
-  binary = "0" + binary
+  while len(binary) <8:
+    binary = "0" + binary
 
   return binary
 
@@ -123,7 +122,11 @@ def binaryToNumber(bin):
     lastDigit = bin[spot]
 
     if lastDigit == '1':
-      
+      decimal = decimal + value
+
+    value = value * 2
+
+    bin = bin[0:lastSpot]
 
 
 
@@ -131,11 +134,31 @@ def binaryToNumber(bin):
 
 def main():
   #Ask user if they want to encode/decode
+  question = input("Would you like to encode or decode?: ")
+  print(question)
+
+  #Prompt for the image that will be opened
+  image_name = input("What image would you like? ")
+  myImag = Image.open(image_name)
+  
+  #If encoding, prompt for a message to encode.
+  if(question == "encode"):
+    message = input("Write a message ")
+    
+
+  #If decoding, display the decoded message.
+  if(question == "decode"):
+    secret = decode(myImag)
+    print(secret)
+    myImag.close()
+
+  """
   myImg = Image.open('pki.png')
   myMsg = "This is a secret message I will hide in an image."
   encode(myImg, myMsg)
   myImg.close()
 
+  """
   """
   yourImg = Image.open('secretImg.png')
   msg = decode(yourImg)
